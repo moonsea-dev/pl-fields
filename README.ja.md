@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh_CN.md) | [繁體中文](README.zh_TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
-[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-fields)
+[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/moonsea-dev/pl-fields)
 
-## バージョン 0.5.0 の基準
+## 0.6.0 への移行
 
-3 つの Moonsea パッケージは `v0.5.0` から再開します。以前のタグと GitHub Releases は削除し、コミット履歴は保持しています。Composer のバージョン制約とロックファイルを明示的に更新してください。これは新しいバージョン基準であり、削除したリリースからの自動更新ではありません。
+`v0.6.0` の Composer パッケージ名は `moonsea-dev/pl-fields`、PHP 名前空間は `Moonsea\Fields` です。以前のパッケージ依存を置き換え、アプリケーションのクラス参照と公開済み設定を更新してから、Composer ロックファイルと設定キャッシュを更新してください。既存の `v0.5.0` タグは保持します。このリリースではパッケージの識別子を変更しますが、データベースのテーブル名や設定キーは変更しません。
 
 ## 提供範囲
 
@@ -19,14 +19,14 @@ Laravel 向けに、型付きフィールド定義、値の検証、設定可能
 宣言上の対応範囲は PHP `^8.2`、Laravel コンポーネント `^11 | ^12 | ^13` です。Laravel のバージョンによっては、より新しい PHP が必要です。この文書は現在のソースを説明しています。対応するリリースを選んでください。
 
 ```bash
-composer require coding1688/pl-fields
+composer require "moonsea-dev/pl-fields:^0.6"
 php artisan vendor:publish --tag=fields-config
 ```
 
 設定済み Composer レジストリで見つからない場合は、先に VCS リポジトリを追加します。
 
 ```bash
-composer config repositories.pl-fields vcs https://github.com/coding1688/pl-fields.git
+composer config repositories.pl-fields vcs https://github.com/moonsea-dev/pl-fields.git
 ```
 
 Laravel は `FieldsServiceProvider` を自動検出します。マイグレーション、ルート、ワーカーは不要です。
@@ -52,7 +52,7 @@ return [
 ## 値の検証と正規化
 
 ```php
-use Coding1688\Fields\FieldRegistry;
+use Moonsea\Fields\FieldRegistry;
 
 $registry = app(FieldRegistry::class);
 $field = $registry->get('number');
@@ -95,8 +95,8 @@ $valid = $field->validator(false)->validate($value, [], $rules);
 サービスプロバイダーで既存レジストリを拡張します。レジストリ自体を置き換える必要はありません。
 
 ```php
-use Coding1688\Fields\Options\OptionContext;
-use Coding1688\Fields\Options\OptionSourceRegistry;
+use Moonsea\Fields\Options\OptionContext;
+use Moonsea\Fields\Options\OptionSourceRegistry;
 
 $this->app->afterResolving(OptionSourceRegistry::class,
     function (OptionSourceRegistry $sources): void {
@@ -149,4 +149,4 @@ CI には宣言した Laravel 世代の互換性ジョブがあります。す�
 
 MIT。[LICENSE](LICENSE) を参照してください。
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

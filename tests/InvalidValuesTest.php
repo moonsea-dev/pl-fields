@@ -1,7 +1,7 @@
 <?php
 
-use Coding1688\Fields\Validators\NumberValidator;
-use Coding1688\Fields\Validators\OptionValidator;
+use Moonsea\Fields\Validators\NumberValidator;
+use Moonsea\Fields\Validators\OptionValidator;
 use PHPUnit\Framework\TestCase;
 
 final class InvalidValuesTest extends TestCase

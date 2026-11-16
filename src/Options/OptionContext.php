@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Fields\Options;
+namespace Moonsea\Fields\Options;
 
 use InvalidArgumentException;
 

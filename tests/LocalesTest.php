@@ -1,8 +1,8 @@
 <?php
 
-use Coding1688\Fields\FieldRegistry;
-use Coding1688\Fields\FieldsServiceProvider;
-use Coding1688\Fields\Validators\LocalizedTextValidator;
+use Moonsea\Fields\FieldRegistry;
+use Moonsea\Fields\FieldsServiceProvider;
+use Moonsea\Fields\Validators\LocalizedTextValidator;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use PHPUnit\Framework\TestCase;

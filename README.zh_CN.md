@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh_CN.md) | [繁體中文](README.zh_TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
-[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-fields)
+[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/moonsea-dev/pl-fields)
 
-## 0.5.0 版本基线
+## 0.6.0 升级说明
 
-三个 Moonsea 包统一从 `v0.5.0` 重新开始。原标签和 GitHub Releases 已清理，提交历史保留。请显式更新 Composer 版本约束和锁文件。这是新的版本基线，不是从已移除版本自动升级。
+`v0.6.0` 使用 Composer 包名 `moonsea-dev/pl-fields` 和 PHP 命名空间 `Moonsea\Fields`。请替换原包依赖，更新应用中的类引用及已发布配置，再更新 Composer 锁文件并重建配置缓存。保留已有 `v0.5.0` 标签。本次更改包标识，不更改数据库表名或配置键。
 
 ## 功能范围
 
@@ -19,14 +19,14 @@
 声明支持 PHP `^8.2`、Laravel 组件 `^11 | ^12 | ^13`。所选 Laravel 版本可能要求更高版本的 PHP。本文描述当前源码，请选择匹配的发布版本。
 
 ```bash
-composer require coding1688/pl-fields
+composer require "moonsea-dev/pl-fields:^0.6"
 php artisan vendor:publish --tag=fields-config
 ```
 
 如果 Composer 当前配置的软件源找不到此包，请先添加 VCS 仓库：
 
 ```bash
-composer config repositories.pl-fields vcs https://github.com/coding1688/pl-fields.git
+composer config repositories.pl-fields vcs https://github.com/moonsea-dev/pl-fields.git
 ```
 
 Laravel 自动发现 `FieldsServiceProvider`。不需要迁移、路由或队列进程。
@@ -52,7 +52,7 @@ return [
 ## 校验和规范化值
 
 ```php
-use Coding1688\Fields\FieldRegistry;
+use Moonsea\Fields\FieldRegistry;
 
 $registry = app(FieldRegistry::class);
 $field = $registry->get('number');
@@ -95,8 +95,8 @@ $valid = $field->validator(false)->validate($value, [], $rules);
 在服务提供者中扩展现有注册表，无需替换注册表：
 
 ```php
-use Coding1688\Fields\Options\OptionContext;
-use Coding1688\Fields\Options\OptionSourceRegistry;
+use Moonsea\Fields\Options\OptionContext;
+use Moonsea\Fields\Options\OptionSourceRegistry;
 
 $this->app->afterResolving(OptionSourceRegistry::class,
     function (OptionSourceRegistry $sources): void {
@@ -149,4 +149,4 @@ CI 定义了所声明 Laravel 版本的兼容性任务。请检查目标发布�
 
 MIT。参见 [LICENSE](LICENSE)。
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

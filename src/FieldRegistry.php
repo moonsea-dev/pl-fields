@@ -1,16 +1,16 @@
 <?php
 
-namespace Coding1688\Fields;
+namespace Moonsea\Fields;
 
-use Coding1688\Fields\Contracts\FieldType;
-use Coding1688\Fields\Options\OptionSourceRegistry;
-use Coding1688\Fields\Types\CheckboxField;
-use Coding1688\Fields\Types\LocalizedTextField;
-use Coding1688\Fields\Types\NumberField;
-use Coding1688\Fields\Types\RadioField;
-use Coding1688\Fields\Types\SelectField;
-use Coding1688\Fields\Types\SwitchField;
-use Coding1688\Fields\Types\TextField;
+use Moonsea\Fields\Contracts\FieldType;
+use Moonsea\Fields\Options\OptionSourceRegistry;
+use Moonsea\Fields\Types\CheckboxField;
+use Moonsea\Fields\Types\LocalizedTextField;
+use Moonsea\Fields\Types\NumberField;
+use Moonsea\Fields\Types\RadioField;
+use Moonsea\Fields\Types\SelectField;
+use Moonsea\Fields\Types\SwitchField;
+use Moonsea\Fields\Types\TextField;
 use InvalidArgumentException;
 
 final class FieldRegistry

@@ -4,11 +4,11 @@
 
 Typed field definitions, value validation and configurable option sources for Laravel.
 
-[Moonsea](https://moonsea.dev) · [Source](https://github.com/coding1688/pl-fields) · [Issues](https://github.com/coding1688/pl-fields/issues) · [Getting started](GETTING_STARTED.md)
+[Moonsea](https://moonsea.dev) · [Source](https://github.com/moonsea-dev/pl-fields) · [Issues](https://github.com/moonsea-dev/pl-fields/issues) · [Getting started](GETTING_STARTED.md)
 
-## Version 0.5.0 baseline
+## Version 0.6.0 migration
 
-The three Moonsea packages restart at `v0.5.0`. Earlier tags and GitHub Releases have been removed; commit history remains. Update Composer version constraints and lock files explicitly. This is a new version baseline, not an automatic upgrade from the removed releases.
+Version `v0.6.0` uses Composer package `moonsea-dev/pl-fields` and PHP namespace `Moonsea\Fields`. Replace the previous package requirement, update application imports and published configuration, then update the Composer lock file and rebuild configuration caches. Existing `v0.5.0` tags remain available. This release changes package identity; it does not rename database tables or configuration keys.
 
 ## Scope
 
@@ -21,14 +21,14 @@ Built-in field keys are `text`, `localized_text`, `number`, `checkbox`, `radio`,
 Declared support: PHP `^8.2`, Laravel components `^11 | ^12 | ^13`. The chosen Laravel version may require newer PHP. This document describes current source; select a matching release.
 
 ```bash
-composer require coding1688/pl-fields
+composer require "moonsea-dev/pl-fields:^0.6"
 php artisan vendor:publish --tag=fields-config
 ```
 
 If the package is unavailable through your Composer registry, configure its VCS repository first:
 
 ```bash
-composer config repositories.pl-fields vcs https://github.com/coding1688/pl-fields.git
+composer config repositories.pl-fields vcs https://github.com/moonsea-dev/pl-fields.git
 ```
 
 Laravel automatically discovers `FieldsServiceProvider`. No migrations, routes or workers are needed.
@@ -54,7 +54,7 @@ Supported languages and mandatory translations are separate settings. Localized-
 ## Validate and normalize values
 
 ```php
-use Coding1688\Fields\FieldRegistry;
+use Moonsea\Fields\FieldRegistry;
 
 $registry = app(FieldRegistry::class);
 $field = $registry->get('number');
@@ -97,8 +97,8 @@ No automatic translation is performed. Your application supplies translated valu
 Extend the existing registry in your service provider; replacing the registry is unnecessary:
 
 ```php
-use Coding1688\Fields\Options\OptionContext;
-use Coding1688\Fields\Options\OptionSourceRegistry;
+use Moonsea\Fields\Options\OptionContext;
+use Moonsea\Fields\Options\OptionSourceRegistry;
 
 $this->app->afterResolving(OptionSourceRegistry::class,
     function (OptionSourceRegistry $sources): void {
@@ -151,4 +151,4 @@ When migrating from older integration code, move `pl.fields.*` overrides to `fie
 
 MIT. See [LICENSE](LICENSE).
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

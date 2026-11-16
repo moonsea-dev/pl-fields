@@ -2,11 +2,11 @@
 
 [English](README.md) | [简体中文](README.zh_CN.md) | [繁體中文](README.zh_TW.md) | [日本語](README.ja.md) | [한국어](README.ko.md)
 
-[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/coding1688/pl-fields)
+[Moonsea](https://moonsea.dev) · [GitHub](https://github.com/moonsea-dev/pl-fields)
 
-## 버전 0.5.0 기준
+## 0.6.0 마이그레이션
 
-세 Moonsea 패키지는 `v0.5.0`부터 다시 시작합니다. 기존 태그와 GitHub Releases는 삭제하고 커밋 기록은 유지합니다. Composer 버전 제약과 잠금 파일을 명시적으로 갱신하세요. 이는 새로운 버전 기준이며 삭제된 릴리스에서 자동으로 업그레이드되지 않습니다.
+`v0.6.0`의 Composer 패키지 이름은 `moonsea-dev/pl-fields`이고 PHP 네임스페이스는 `Moonsea\Fields`입니다. 이전 패키지 의존성을 교체하고 애플리케이션의 클래스 참조와 게시된 설정을 수정한 뒤 Composer 잠금 파일과 설정 캐시를 갱신하세요. 기존 `v0.5.0` 태그는 유지합니다. 이번 릴리스는 패키지 식별자를 변경하며 데이터베이스 테이블 이름이나 설정 키는 변경하지 않습니다.
 
 ## 제공 범위
 
@@ -19,14 +19,14 @@ Laravel용 타입이 지정된 필드 정의, 값 검증 및 설정 가능한 �
 선언된 지원 범위는 PHP `^8.2`, Laravel 구성 요소 `^11 | ^12 | ^13`입니다. 선택한 Laravel 버전은 더 높은 PHP 버전을 요구할 수 있습니다. 이 문서는 현재 소스를 설명하므로 일치하는 릴리스를 선택하세요.
 
 ```bash
-composer require coding1688/pl-fields
+composer require "moonsea-dev/pl-fields:^0.6"
 php artisan vendor:publish --tag=fields-config
 ```
 
 설정된 Composer 레지스트리에서 패키지를 찾을 수 없다면 VCS 저장소를 먼저 추가하세요.
 
 ```bash
-composer config repositories.pl-fields vcs https://github.com/coding1688/pl-fields.git
+composer config repositories.pl-fields vcs https://github.com/moonsea-dev/pl-fields.git
 ```
 
 Laravel은 `FieldsServiceProvider`를 자동 검색합니다. 마이그레이션, 라우트, 워커는 필요하지 않습니다.
@@ -52,7 +52,7 @@ return [
 ## 값 검증 및 정규화
 
 ```php
-use Coding1688\Fields\FieldRegistry;
+use Moonsea\Fields\FieldRegistry;
 
 $registry = app(FieldRegistry::class);
 $field = $registry->get('number');
@@ -95,8 +95,8 @@ $valid = $field->validator(false)->validate($value, [], $rules);
 서비스 프로바이더에서 기존 레지스트리를 확장하세요. 레지스트리를 교체할 필요는 없습니다.
 
 ```php
-use Coding1688\Fields\Options\OptionContext;
-use Coding1688\Fields\Options\OptionSourceRegistry;
+use Moonsea\Fields\Options\OptionContext;
+use Moonsea\Fields\Options\OptionSourceRegistry;
 
 $this->app->afterResolving(OptionSourceRegistry::class,
     function (OptionSourceRegistry $sources): void {
@@ -149,4 +149,4 @@ CI는 선언된 Laravel 세대의 호환성 작업을 정의합니다. 모든 �
 
 MIT. [LICENSE](LICENSE)를 참고하세요.
 
-Copyright © 2026 [coding1688 · Moonsea](https://moonsea.dev).
+Copyright © 2026 [moonsea-dev · Moonsea](https://moonsea.dev).

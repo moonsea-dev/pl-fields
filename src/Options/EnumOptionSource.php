@@ -1,9 +1,9 @@
 <?php
 
-namespace Coding1688\Fields\Options;
+namespace Moonsea\Fields\Options;
 
-use Coding1688\Fields\Contracts\LocalizedOption;
-use Coding1688\Fields\Contracts\OptionSource;
+use Moonsea\Fields\Contracts\LocalizedOption;
+use Moonsea\Fields\Contracts\OptionSource;
 use BackedEnum;
 use Illuminate\Support\Traits\Localizable;
 use InvalidArgumentException;

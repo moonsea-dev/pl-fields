@@ -1,6 +1,6 @@
 <?php
 
-namespace Coding1688\Fields\Contracts;
+namespace Moonsea\Fields\Contracts;
 
 interface FieldValueValidator
 {

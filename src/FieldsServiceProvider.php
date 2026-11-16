@@ -1,8 +1,8 @@
 <?php
 
-namespace Coding1688\Fields;
+namespace Moonsea\Fields;
 
-use Coding1688\Fields\Options\OptionSourceRegistry;
+use Moonsea\Fields\Options\OptionSourceRegistry;
 use Illuminate\Support\ServiceProvider;
 
 class FieldsServiceProvider extends ServiceProvider

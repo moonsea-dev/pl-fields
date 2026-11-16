@@ -1,6 +1,6 @@
 <?php
 
-use Coding1688\Fields\FieldsServiceProvider;
+use Moonsea\Fields\FieldsServiceProvider;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Illuminate\Foundation\Application;

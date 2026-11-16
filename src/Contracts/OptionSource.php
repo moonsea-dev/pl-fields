@@ -1,8 +1,8 @@
 <?php
 
-namespace Coding1688\Fields\Contracts;
+namespace Moonsea\Fields\Contracts;
 
-use Coding1688\Fields\Options\OptionContext;
+use Moonsea\Fields\Options\OptionContext;
 
 interface OptionSource
 {

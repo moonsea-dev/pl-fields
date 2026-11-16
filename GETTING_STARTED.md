@@ -1,22 +1,22 @@
 # Getting started
 
-Maintained by [coding1688 / Moonsea](https://moonsea.dev). MIT licensed.
+Maintained by [moonsea-dev / Moonsea](https://moonsea.dev). MIT licensed.
 
-Install with Composer. If the package is not available from your configured registry, add its GitHub VCS repository to your application's composer.json first. The existing package name and PHP namespace are unchanged. Laravel discovers the service provider automatically.
+Install with Composer. If the package is not available from your configured registry, add its GitHub VCS repository to your application's composer.json first. Version 0.6.0 uses `moonsea-dev/pl-fields` and namespace `Moonsea\Fields`. When upgrading, replace the previous Composer requirement and update class references in application code and published configuration before rebuilding caches. Laravel discovers the service provider automatically.
 
 Configuration precedence is: package defaults < legacy `pl.fields` < `fields`. New applications should use only `config/fields.php`. Old `pl.*` values are accepted at provider registration time; runtime overrides must use the canonical key. Maps merge and lists replace (including an empty list). After changing cached configuration, rebuild your application's configuration cache.
 
 ## Default fields
 
 ```bash
-composer require coding1688/pl-fields
+composer require "moonsea-dev/pl-fields:^0.6"
 php artisan vendor:publish --tag=fields-config
 ```
 
 No migrations, routes or queue workers are required.
 
 ```php
-$registry = app(\Coding1688\Fields\FieldRegistry::class);
+$registry = app(\Moonsea\Fields\FieldRegistry::class);
 $number = $registry->get('number');
 $valid = $number->validator(false)->validate(['value_number' => '12.25']);
 ```
@@ -32,7 +32,7 @@ The default supported locales are `en`, `zh_CN`, `zh_TW`, `ja`, `ko`. Supported 
 In your application's service provider, register business option sources after the registry is resolved:
 
 ```php
-$this->app->afterResolving(\Coding1688\Fields\Options\OptionSourceRegistry::class,
+$this->app->afterResolving(\Moonsea\Fields\Options\OptionSourceRegistry::class,
     function ($sources) {
         $sources->registerCategory('catalog', 'Catalog');
         $sources->registerDatabase('catalog.brand', 'catalog', 'Brands',

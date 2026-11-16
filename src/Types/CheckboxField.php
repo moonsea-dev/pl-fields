@@ -1,10 +1,10 @@
 <?php
 
-namespace Coding1688\Fields\Types;
+namespace Moonsea\Fields\Types;
 
-use Coding1688\Fields\Contracts\FieldType;
-use Coding1688\Fields\Contracts\FieldValueValidator;
-use Coding1688\Fields\Validators\OptionValidator;
+use Moonsea\Fields\Contracts\FieldType;
+use Moonsea\Fields\Contracts\FieldValueValidator;
+use Moonsea\Fields\Validators\OptionValidator;
 
 final class CheckboxField implements FieldType
 {

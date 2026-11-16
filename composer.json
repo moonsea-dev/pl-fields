@@ -1,5 +1,5 @@
 {
-    "name": "coding1688/pl-fields",
+    "name": "moonsea-dev/pl-fields",
     "description": "Laravel field registry: typed field definitions, validators and option sources shared by the pl-* packages.",
     "type": "library",
     "license": "MIT",
@@ -12,14 +12,14 @@
     ],
     "authors": [
         {
-            "name": "coding1688",
+            "name": "Moonsea",
             "homepage": "https://moonsea.dev"
         }
     ],
     "homepage": "https://moonsea.dev",
     "support": {
-        "issues": "https://github.com/coding1688/pl-fields/issues",
-        "source": "https://github.com/coding1688/pl-fields"
+        "issues": "https://github.com/moonsea-dev/pl-fields/issues",
+        "source": "https://github.com/moonsea-dev/pl-fields"
     },
     "require": {
         "php": "^8.2",
@@ -33,18 +33,18 @@
     },
     "autoload": {
         "psr-4": {
-            "Coding1688\\Fields\\": "src/"
+            "Moonsea\\Fields\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Coding1688\\Fields\\Tests\\": "tests/"
+            "Moonsea\\Fields\\Tests\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Coding1688\\Fields\\FieldsServiceProvider"
+                "Moonsea\\Fields\\FieldsServiceProvider"
             ]
         }
     },

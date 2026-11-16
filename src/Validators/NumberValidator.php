@@ -1,8 +1,8 @@
 <?php
 
-namespace Coding1688\Fields\Validators;
+namespace Moonsea\Fields\Validators;
 
-use Coding1688\Fields\Contracts\FieldValueValidator;
+use Moonsea\Fields\Contracts\FieldValueValidator;
 
 final class NumberValidator implements FieldValueValidator
 {
